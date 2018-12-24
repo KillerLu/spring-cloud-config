@@ -1,0 +1,15 @@
+server:
+  port: 9003 #服务注册中心端口号
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: localhost #服务注册中心实例的主机名
+  client:
+    fetch-registry: false # 不通过eureka获取注册信息,因为这本身就是个注册中心,无需再检索
+    register-with-eureka: false #是否向服务注册中心注册自己,因为这本身就是个注册中心,无需再注册
+    serviceUrl:
+          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  #服务注册中心的配置内容，指定服务注册中心的位置
+
+
