@@ -1,0 +1,106 @@
+activity:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    password: activitidev
+    url: jdbc:oracle:thin:@192.168.1.78:1521:db2
+    username: activitidev
+app:
+  ceph:
+    s3:
+      access_key: 2BNBAHO72FZDN6UW8QS8
+      endpoint: sgw.office.gz
+      region: default
+      secret_key: xSymVW1BxA4pLeEtYsNW3ox9o8RKdAYAOhgsRdbd
+      uid: user1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.44:8000/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    preferIpAddress: 'true'
+feign:
+  hystrix:
+    enabled: 'true'
+file:
+  contract:
+    anxinSign:
+      path: /app/data-dev/abs_contract/anxinSign
+    cache:
+      path: /app/data-dev/abs_contract/cache
+  upload:
+    path: /app/data-dev/abs_data
+helichat:
+  hookUrl: https://chat1.shls-leasing.com/hooks/
+  roomsToken:
+    fk: SwHkJeyjYPkEpQjZr/rbisvbZN35xG36JWHzdFRn8Gr6NpkaKbCeenYD2bQ5QG4ahb
+    yw: SwHkJeyjYPkEpQjZr/rbisvbZN35xG36JWHzdFRn8Gr6NpkaKbCeenYD2bQ5QG4ahb
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+        thread:
+          timeoutInMilliseconds: '60000'
+        timeout:
+          enabled: 'false'
+logstash:
+  destination: 192.168.1.60:9250
+  profile: dev
+orient:
+  graph:
+    maxPoolSize: '10'
+    minPoolSize: '1'
+    password: admin
+    url: remote:orientdb-dev.office.gz/abs-dev
+    userName: admin
+product:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    password: absproject
+    url: jdbc:oracle:thin:@192.168.1.78:1521:db2
+    username: absv4
+ribbon:
+  ConnectTimeout: '60000'
+  ReadTimeout: '60000'
+service:
+  fengbao:
+    host: 192.168.1.44
+    port: '9090'
+  message:
+    host: 192.168.1.44
+    port: '8003'
+    systemToken: SYSTEM:ABS_PROJECT_MANAGEMENT
+spring:
+  data:
+    mongodb:
+      host: 192.168.1.44
+      port: '27017'
+  http:
+    multipart:
+      max-file-size: 100Mb
+      maxRequestSize: 100Mb
+  rabbitmq:
+    host: 192.168.1.44
+    password: abs
+    port: '5672'
+    username: abs
+  redis:
+    cluster:
+      nodes: 192.168.1.72:7000,192.168.1.72:7001,192.168.1.72:7002,192.168.1.72:7003,192.168.1.72:7004,192.168.1.72:7005
+    maxActive: '300'
+    maxIdle: '100'
+    maxWait: '1000'
+    timeout: '10000'
+  sleuth:
+    sampler:
+      percentage: '1'
+  zipkin:
+    base-url: http://localhost:8014
+sync:
+  gateway:
+    host: 192.168.1.43
+    port: '9000'
+  password: 811768908901jaRaymondson
+  username: user
